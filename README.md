@@ -21,7 +21,7 @@ exp1_boolean_min.vcd	VCD waveform dump generated during simulation
 
 ## Verilog Program
 
-//gedit fun.v
+gedit fun.v
 module fun (
 input wire A,
 input wire B,
@@ -34,21 +34,21 @@ endmodule
 ## TestBench Program
 
 
-// gedit tb.v
+gedit tb.v
 module tb;
  reg A, B;
  wire F;
- // Instantiate the design under test (DUT)
+  Instantiate the design under test (DUT)
  fun uut (
  .A(A),
  .B(B),
  .F(F)
  );
  initial begin
- // ---- VCD dump setup ----
+  ---- VCD dump setup ----
  $dumpfile("fun.vcd"); // name of the VCD file to be generated
  $dumpvars(0, tb); // dump all signals in this testbench hierarchy
- // ---- Apply all 4 input combinations ----
+  ---- Apply all 4 input combinations ----
  $monitor("Time=%0t A=%b B=%b | F=%b", $time, A, B, F);
  A = 0; B = 0; #10;
  A = 0; B = 1; #10;
